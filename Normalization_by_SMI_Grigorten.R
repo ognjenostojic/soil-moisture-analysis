@@ -34,7 +34,7 @@ calculate_smi_gringorten <- function(values) {
 # Function to read and compute SMI for STM (observation) data
 read_and_clean_stm <- function(filename) {
   if (!file.exists(filename)) {
-    cat("⚠️ Missing STM file:", filename, "\n")
+    cat(" Missing STM file:", filename, "\n")
     return(NULL)
   }
   
@@ -67,7 +67,7 @@ get_simulation_file_path <- function(level, resolution, station_id) {
 # Function to read and compute SMI for NetCDF simulation data
 read_nc_simulation <- function(file_path, resolution, obs_start, obs_end) {
   if (!file.exists(file_path)) {
-    cat("⚠️ Missing NetCDF file:", file_path, "\n")
+    cat(" Missing NetCDF file:", file_path, "\n")
     return(NULL)
   }
   
@@ -89,7 +89,7 @@ read_nc_simulation <- function(file_path, resolution, obs_start, obs_end) {
   # Remove all NA cases
   valid_indices <- !is.na(sim_values)
   if (sum(valid_indices) == 0) {
-    cat("⚠️ No valid data in:", file_path, "\n")
+    cat(" No valid data in:", file_path, "\n")
     return(NULL)
   }
   
@@ -161,7 +161,7 @@ generate_plots <- function(station_id, stm_file_path, level) {
   # Save plot
   file_name <- sprintf("%s/plot_ID_%d_%s_combined.pdf", output_dir, station_id, level)
   ggsave(file_name, plot, width = 12, height = 8)
-  cat("✅ Plot saved:", file_name, "\n")
+  cat(" Plot saved:", file_name, "\n")
 }
 
 # Process stations across Levels L01, L02, L03
@@ -170,13 +170,13 @@ for (level in levels) {
     station_id <- lookup_table$ID[i]
     stm_file_path <- lookup_table$Filename[i]
     
-    cat("📌 Processing Station:", station_id, "at", level, "\n")
+    cat(" Processing Station:", station_id, "at", level, "\n")
     tryCatch({
       generate_plots(station_id, stm_file_path, level)
     }, error = function(e) {
-      cat("❌ Error processing station:", station_id, "- Skipping...\n")
+      cat(" Error processing station:", station_id, "- Skipping...\n")
     })
   }
 }
 
-cat("🎉 All plots for Levels L01, L02, L03 generated and saved in:", output_dir, "\n")
+cat(" All plots for Levels L01, L02, L03 generated and saved in:", output_dir, "\n")
