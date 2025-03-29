@@ -17,12 +17,12 @@ files <- list.files(pattern = "SMvol_L01_0p0625deg\\.nc", full.names = TRUE)
 
 # Check if the file exists
 if (length(files) == 0) {
-  stop("⚠️ No file found for 5km resolution.")
+  stop(" No file found for 5km resolution.")
 }
 
 file_path <- files[1]  # Use the first match
 
-cat("📂 Processing:", file_path, "\n")
+cat(" Processing:", file_path, "\n")
 
 # Open NetCDF file
 nc_data <- nc_open(file_path)
@@ -69,4 +69,4 @@ output_file <- sprintf("%s/Soil_Moisture_Map_L1_5km.pdf", output_dir)
 # Save the plot
 ggsave(output_file, p, width = 10, height = 6)
 
-cat("✅ Saved:", output_file, "\n")
+cat(" Saved:", output_file, "\n")
