@@ -53,4 +53,4 @@ p <- ggplot() +
 # Save plot
 ggsave("Spatial_Map_Stations.pdf", p, width = 10, height = 6)
 
-cat("✅ Saved: Spatial_Map_Stations.pdf\n")
+cat("Saved: Spatial_Map_Stations.pdf\n")
