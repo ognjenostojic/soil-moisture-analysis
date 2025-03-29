@@ -37,7 +37,7 @@ calculate_smi_gringorten <- function(values) {
 # Function to read and compute SMI for STM (observation) data
 read_and_clean_stm <- function(filename) {
   if (!file.exists(filename)) {
-    cat("⚠️ Missing STM file:", filename, "\n")
+    cat(" Missing STM file:", filename, "\n")
     return(NULL)
   }
   
@@ -59,7 +59,7 @@ read_and_clean_stm <- function(filename) {
 # Function to read and compute SMI for NetCDF simulation data
 read_nc_simulation <- function(file_path, resolution, obs_start, obs_end) {
   if (!file.exists(file_path)) {
-    cat("⚠️ Missing NetCDF file:", file_path, "\n")
+    cat(" Missing NetCDF file:", file_path, "\n")
     return(NULL)
   }
   
@@ -81,7 +81,7 @@ read_nc_simulation <- function(file_path, resolution, obs_start, obs_end) {
   # Remove all NA cases
   valid_indices <- !is.na(sim_values)
   if (sum(valid_indices) == 0) {
-    cat("⚠️ No valid data in:", file_path, "\n")
+    cat(" No valid data in:", file_path, "\n")
     return(NULL)
   }
   
@@ -160,4 +160,4 @@ ggplot(correlation_results, aes(x = factor(Resolution, levels = resolution_order
 
 # Save the boxplot
 ggsave(sprintf("%s/Correlation_Boxplot_SMI_Level2.pdf", output_dir), width = 10, height = 6)
-cat("✅ Boxplot saved:", sprintf("%s/Correlation_Boxplot_SMI_Level2.pdf", output_dir), "\n")
+cat(" Boxplot saved:", sprintf("%s/Correlation_Boxplot_SMI_Level2.pdf", output_dir), "\n")
