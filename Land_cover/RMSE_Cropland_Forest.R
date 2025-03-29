@@ -26,7 +26,7 @@ if (nrow(cropland_results) > 0) {
     theme(legend.position = "none")
   
   ggsave(sprintf("%s/RMSE_Cropland_Level1.pdf", output_dir), p_cropland, width = 10, height = 6)
-  cat("✅ Cropland RMSE boxplot saved.\n")
+  cat("Cropland RMSE boxplot saved.\n")
 }
 
 # Generate Forest RMSE Boxplot
@@ -40,7 +40,7 @@ if (nrow(forest_results) > 0) {
     theme(legend.position = "none")
   
   ggsave(sprintf("%s/RMSE_Forest_Level1.pdf", output_dir), p_forest, width = 10, height = 6)
-  cat("✅ Forest RMSE boxplot saved.\n")
+  cat("Forest RMSE boxplot saved.\n")
 }
 
-cat("✅ Boxplot generation complete!\n")
+cat("Boxplot generation complete!\n")
