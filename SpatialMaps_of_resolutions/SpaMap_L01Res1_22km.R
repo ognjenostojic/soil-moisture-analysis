@@ -71,4 +71,4 @@ combined_plot <- grid.arrange(p1, p2, ncol = 1)
 output_file <- sprintf("%s/Soil_Moisture_Map_L1_combined.pdf", output_dir)
 ggsave(output_file, combined_plot, width = 15, height = 6)
 
-cat("✅ Combined map saved:", output_file, "\n")
+cat("Combined map saved:", output_file, "\n")
