@@ -124,7 +124,7 @@ if (!is.null(forest_results) && nrow(forest_results) > 0) {
   ggsave(sprintf("%s/RMSE_Forest_Level1.pdf", output_dir), width = 10, height = 6)
 }
 
-cat("✅ Boxplots saved in:", output_dir, "\n")
+cat(" Boxplots saved in:", output_dir, "\n")
 
 
 
