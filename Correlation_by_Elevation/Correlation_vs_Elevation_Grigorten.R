@@ -34,7 +34,7 @@ calculate_smi_grigorten <- function(values) {
 # Function to read and compute SMI for STM (observation) data
 read_and_clean_stm <- function(filename) {
   if (!file.exists(filename)) {
-    cat("⚠️ Missing STM file:", filename, "\n")
+    cat(" Missing STM file:", filename, "\n")
     return(NULL)
   }
   
@@ -56,7 +56,7 @@ read_and_clean_stm <- function(filename) {
 # Function to read and compute SMI for NetCDF simulation data
 read_nc_simulation <- function(file_path, resolution) {
   if (!file.exists(file_path)) {
-    cat("⚠️ Missing NetCDF file:", file_path, "\n")
+    cat(" Missing NetCDF file:", file_path, "\n")
     return(NULL)
   }
   
@@ -78,7 +78,7 @@ read_nc_simulation <- function(file_path, resolution) {
   # Remove all NA cases
   valid_indices <- !is.na(sim_values)
   if (sum(valid_indices) == 0) {
-    cat("⚠️ No valid data in:", file_path, "\n")
+    cat("No valid data in:", file_path, "\n")
     return(NULL)
   }
   
@@ -154,4 +154,4 @@ plot <- ggplot(correlation_results, aes(x = Elevation, y = Correlation, color = 
 # Save plot
 ggsave(sprintf("%s/Correlation_vs_Elevation_Grigorten.pdf", output_dir), plot, width = 10, height = 6)
 
-cat("✅ Correlation analysis (Grigorten) complete! Results saved in:", output_dir, "\n")
+cat(" Correlation analysis (Grigorten) complete! Results saved in:", output_dir, "\n")
