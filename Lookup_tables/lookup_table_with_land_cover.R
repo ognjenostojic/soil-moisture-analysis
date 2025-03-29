@@ -50,4 +50,4 @@ write.csv(lookup_table,
           file = "Project/Lookup_tables/lookup_table_with_land_cover.csv",
           row.names = FALSE)
 
-cat("✅ Updated lookup table saved with Land Cover information.\n")
+cat("Updated lookup table saved with Land Cover information.\n")
